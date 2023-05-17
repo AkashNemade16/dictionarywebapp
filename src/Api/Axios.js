@@ -29,15 +29,6 @@ const useAxios = ({input}) => {
 
 export default useAxios
 
-// export const Api =  (input) => {
-//     axios.get(`https://api.dictionaryapi.dev/api/v2/entries/en/${input}`)
-//     .then((res)=>{
-//         console.log(res.data)
-//     })
-//     .catch((err)=>{
-//     console.log(err)
-//     })
-// }
 
   
 

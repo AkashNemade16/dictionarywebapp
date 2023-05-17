@@ -1,14 +1,31 @@
-import React from 'react'
-import { FontAwesomeIcon,} from '@fortawesome/react-fontawesome'
-import {faMagnifyingGlass} from '@fortawesome/free-solid-svg-icons'
-import './Input.sass'
+import React, { useState, useContext } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import {UserContext} from "../../UserContext/UserContext";
+import "./Input.sass";
 const Input = () => {
-  return (
-     <form className='Input-form'>
-        <input type='text' placeholder='Search..' />
-        <button><FontAwesomeIcon icon={faMagnifyingGlass} /></button>
-     </form>
-  )
-}
+  const {userInput,setUserInput} = useContext(UserContext)
+  const [input, setInput] = useState('');
+  const onInputChange = (e) => {
+    setInput(e.target.value);
+    setUserInput(input)
+  };
+  console.log(userInput)
 
-export default Input
+  return (
+    <form className="Input-form">
+      <input
+        type="text"
+        placeholder="Search for any word .."
+        onChange={onInputChange}
+        value={input}
+      />
+      <button>
+        <FontAwesomeIcon icon={faMagnifyingGlass} />
+      </button>
+      your input :{input}
+    </form>
+  );
+};
+
+export default Input;

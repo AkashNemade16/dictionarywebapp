@@ -1,16 +1,17 @@
-import { useEffect,useState } from "react";
+import { useEffect,useState,useContext } from "react";
 import useAxios from "../../Api/Axios";
 import './DictionaryPage.sass'
-
+import {UserContext} from "../../UserContext/UserContext";
 const DictionaryPage = () => {
     const input = 'hello'
-    const {response,loading, error} = useAxios({input})
+    const {userInput} = useContext(UserContext)
+    const {response,loading, error} = useAxios({userInput})
     const [data,setData]=  useState([])
-    console.log(data)
+    console.log(userInput)
     useEffect(()=>{
         setData(response)
     },[response])
-
+   console.log(response)
     return (
         <div className="dictionary-page">
            

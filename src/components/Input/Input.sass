@@ -2,6 +2,8 @@
     width: 736px
     height: 64px
 form
+    border: none
+    padding: 0
     @extend %dimensions-shared
 
 input
@@ -11,8 +13,11 @@ input
     border-radius: 16px
     background: #F4F4F4
 
+
 button
-    width: 15.55px
-    height: 15.55px
+    border: none
+    background: transparent
     color: #A445ED
     cursor: pointer
+
+button[type="submit"]:focus,

@@ -1,14 +1,16 @@
-import React, { useEffect, useState } from 'react';
-import DictionaryPage from '../DictionayPage/DictionaryPage';
-import Input from '../Input/Input';
+import React, { useEffect, useState } from "react";
+import DictionaryPage from "../DictionayPage/DictionaryPage";
+import UserContextProvider from "../../UserContext/UserContext";
+import Input from "../Input/Input";
 const Home = () => {
-   
-    return(
-        <div>
-            <Input/>
-            <DictionaryPage/>
-        </div>
-    )
-}
+  return (
+    <div>
+    <UserContextProvider>
+        <Input />
+        <DictionaryPage />
+    </UserContextProvider>
+    </div>
+  );
+};
 
-export default Home
+export default Home;
