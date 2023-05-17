@@ -1,10 +1,12 @@
-import React,{useContext} from 'react';
-
+import React, { useEffect, useState } from 'react';
+import DictionaryPage from '../DictionayPage/DictionaryPage';
+import Input from '../Input/Input';
 const Home = () => {
-    const context = useContext()
+   
     return(
         <div>
-            Home
+            <Input/>
+            <DictionaryPage/>
         </div>
     )
 }
