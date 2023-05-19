@@ -33,6 +33,7 @@ const Input = () => {
   return (
     <form className="Input-form">
       <input
+        id="input-text"
         type="text"
         placeholder="Search for any word .."
         onChange={onInputChange}

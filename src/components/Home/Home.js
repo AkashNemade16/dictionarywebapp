@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import DictionaryPage from "../DictionayPage/DictionaryPage";
 import UserContextProvider from "../../UserContext/UserContext";
 import Input from "../Input/Input";
