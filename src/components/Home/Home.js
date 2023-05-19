@@ -2,13 +2,14 @@ import React, { useEffect, useState } from "react";
 import DictionaryPage from "../DictionayPage/DictionaryPage";
 import UserContextProvider from "../../UserContext/UserContext";
 import Input from "../Input/Input";
+import "./Home.sass";
 const Home = () => {
   return (
-    <div>
-    <UserContextProvider>
+    <div className="Home">
+      <UserContextProvider>
         <Input />
         <DictionaryPage />
-    </UserContextProvider>
+      </UserContextProvider>
     </div>
   );
 };

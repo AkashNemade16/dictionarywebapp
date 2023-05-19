@@ -2,17 +2,21 @@
     width: 736px
     height: 64px
 form
+    display: flex
     border: none
     padding: 0
+    border-radius: 16px
+    background: #F4F4F4
     @extend %dimensions-shared
 
 input
     @extend %dimensions-shared
     font-size: 17px
     border: none
-    border-radius: 16px
-    background: #F4F4F4
+    background: transparent
 
+*:focus 
+    outline: none
 
 button
     border: none

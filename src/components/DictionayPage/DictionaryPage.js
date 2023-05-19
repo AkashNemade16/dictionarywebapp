@@ -1,11 +1,13 @@
 import { useEffect, useState, useContext } from "react";
-
 import "./DictionaryPage.sass";
 import { UserContext } from "../../UserContext/UserContext";
 const DictionaryPage = () => {
-  const { userInput, apiData } = useContext(UserContext);
+  const { apiData } = useContext(UserContext);
   const [data] = apiData?.data.map((item) => item.meanings) || [];
   console.log(data);
+  const [sourceUrls] = apiData?.data.map((item)=>item.sourceUrls) || []
+  console.log(sourceUrls)
+  console.log(apiData?.data)
   return (
     <div className="dictionary-page">
       {data?.map((item) => (
@@ -17,6 +19,7 @@ const DictionaryPage = () => {
           {item.synonyms && item.partOfSpeech ? item.synonyms.map((item)=><div className="synonyms">{item}</div>):null}
         </div>
       ))}
+      <div className="sourceUrl">{sourceUrls}</div>
     </div>
   );
 };

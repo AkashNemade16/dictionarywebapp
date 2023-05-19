@@ -8,15 +8,14 @@ const Input = () => {
   const { userInput, setUserInput, setApiData, apiData } =
     useContext(UserContext);
   const [input, setInput] = useState("");
-  const [dictData, setdictData] = useState([]);
   
-  const onInputChange = (e) => {
-    setInput(e.target.value);
-    setUserInput(e.target.value);
+  const onInputChange = (event) => {
+    setInput(event.target.value);
+    setUserInput(event.target.value);
   };
 
-  const onSubmit = (e) => {
-    e.preventDefault();
+  const onSubmit = (event) => {
+    event.preventDefault();
     getResponse();
   };
 
