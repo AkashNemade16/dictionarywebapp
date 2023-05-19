@@ -9,6 +9,7 @@ const Input = () => {
     useContext(UserContext);
   const [input, setInput] = useState("");
   const [dictData, setdictData] = useState([]);
+  
   const onInputChange = (e) => {
     setInput(e.target.value);
     setUserInput(e.target.value);

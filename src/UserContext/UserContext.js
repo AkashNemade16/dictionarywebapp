@@ -4,7 +4,7 @@ export const UserContext = createContext();
 
 const UserContextProvider = ({ children }) => {
   const [userInput, setUserInput] = useState('');
-  const [apiData,setApiData] = useState([])
+  const [apiData,setApiData] = useState(null)
   const [theme, setTheme] = useState(null);
 
   const value = { userInput, setUserInput, theme, setTheme, apiData, setApiData };

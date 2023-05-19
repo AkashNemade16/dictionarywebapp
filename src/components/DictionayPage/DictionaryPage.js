@@ -4,12 +4,15 @@ import './DictionaryPage.sass'
 import {UserContext} from "../../UserContext/UserContext";
 const DictionaryPage = () => {
     const {userInput,apiData} = useContext(UserContext)
-    console.log(userInput)
-    console.log(apiData)
-   
+    const [data] = apiData?.data.map((item)=>item.meanings) || []
+    const partOfSpeech = data?.map((item)=>item.partOfSpeech)
+    console.log(partOfSpeech)
+    console.log(data)
+
+    
     return (
         <div className="dictionary-page">
-           
+            {data?.map((item)=><div>{item.partOfSpeech}</div>)}
         </div>
     )
 }
