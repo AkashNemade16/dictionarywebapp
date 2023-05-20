@@ -5,7 +5,7 @@ import { UserContext } from "../../UserContext/UserContext";
 import { fetchData } from "../../Api/Axios";
 import "./Input.sass";
 const Input = () => {
-  const { userInput, setUserInput, setApiData, apiData } =
+  const {  setUserInput, setApiData, theme } =
     useContext(UserContext);
   const [input, setInput] = useState("");
   
@@ -33,6 +33,7 @@ const Input = () => {
   return (
     <form className="Input-form">
       <input
+        className={theme}
         id="input-text"
         type="text"
         placeholder="Search for any word .."
