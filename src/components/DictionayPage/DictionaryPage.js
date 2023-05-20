@@ -4,20 +4,23 @@ import { faCirclePlay } from "@fortawesome/free-solid-svg-icons";
 import "./DictionaryPage.sass";
 import { UserContext } from "../../UserContext/UserContext";
 const DictionaryPage = () => {
-  const { apiData } = useContext(UserContext);
+  const { apiData,font } = useContext(UserContext);
+  console.log(font)
   const [data] = apiData?.data.map((item) => item.meanings) || [];
   const [phonetic] = apiData?.data.map((item) => item.phonetic) || [];
-  console.log(apiData?.data)
-  console.log(phonetic)
   const [sourceUrls] = apiData?.data.map((item) => item.sourceUrls) || [];
   const [word] = apiData?.data.map((item) => item.word) || [];
   const [phonetics] = apiData?.data.map((item) => item.phonetics) || [];
-  const phoneticsRefractored = phonetics
-    ?.filter((obj) => obj.audio !== "")
+  const [phoneticsRefractored] =
+    phonetics?.filter((obj) => obj.audio !== "")?.map((item) => item.audio) ||
+    [];
+    let audio = new Audio(phoneticsRefractored)
   console.log(phoneticsRefractored);
-
+const onPlay =()=>{
+    audio.play()
+}
   return (
-    <div className="dictionary-page">
+    <div className={`dictionary-page ${font}`}>
       <div className="word">
         <div className="searched-Word-text">
           <div className="searchedWord">
@@ -26,9 +29,9 @@ const DictionaryPage = () => {
           <div className="text">{phonetic}</div>
         </div>
         <div className="play-button">
-            <button>
-                <FontAwesomeIcon icon={faCirclePlay} />
-            </button>
+          <button onClick={onPlay}>
+            <FontAwesomeIcon icon={faCirclePlay} />
+          </button>
         </div>
       </div>
       {data?.map((item) => (
