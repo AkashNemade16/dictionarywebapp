@@ -1,14 +1,13 @@
-import React, { useState, useContext} from "react";
+import React, { useState, useContext } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { UserContext } from "../../UserContext/UserContext";
 import { fetchData } from "../../Api/Axios";
 import "./Input.sass";
 const Input = () => {
-  const {  setUserInput, setApiData, theme } =
-    useContext(UserContext);
+  const { setUserInput, setApiData, theme } = useContext(UserContext);
   const [input, setInput] = useState("");
-  
+
   const onInputChange = (event) => {
     setInput(event.target.value);
     setUserInput(event.target.value);
@@ -31,9 +30,8 @@ const Input = () => {
   };
 
   return (
-    <form className="Input-form">
+    <form className={`form ${theme}`}>
       <input
-        className={theme}
         id="input-text"
         type="text"
         placeholder="Search for any word .."
