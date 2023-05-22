@@ -14,11 +14,10 @@ const DictionaryPage = () => {
     phonetics?.filter((obj) => obj.audio !== "")?.map((item) => item.audio) ||
     [];
   let audio = new Audio(phoneticsRefractored);
-  console.log(phoneticsRefractored);
   const onPlay = () => {
     audio.play();
   };
-  console.log(error?.response.data);
+  console.log(apiData)
   return !error ? (
     <div className={`dictionary-page ${font}`}>
       <div className="word">
@@ -54,11 +53,17 @@ const DictionaryPage = () => {
                 ))
               : null}
           </div>
+          <div className="synonymHeading">
+          {item.synonyms.length ? <div className="synonym-heading">Synonyms</div>:null}
+          <div>
           {item.synonyms && item.partOfSpeech
             ? item.synonyms.map((item) => (
                 <div className="synonyms">{item}</div>
               ))
             : null}
+          </div>  
+          </div>
+          
         </div>
       ))}
       {sourceUrls ? <div className="sourceUrl">{sourceUrls}</div> : null}
