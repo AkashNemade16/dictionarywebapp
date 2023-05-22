@@ -30,7 +30,8 @@ const Input = () => {
   
 
   return (
-    <form className={`form ${theme} ${input==="" && errorBorder ? 'error':null}`}>
+    <div>
+      <form className={`form ${theme} ${input==="" && errorBorder ? 'error':null}`}>
       <input
         className={theme}
         id='input-text'
@@ -43,6 +44,11 @@ const Input = () => {
         <FontAwesomeIcon icon={faMagnifyingGlass} />
       </button>
     </form>
+    {input==="" && errorBorder?<div className="errorMessage">
+    Whoops, can’t be empty…
+    </div>:null}
+    </div>
+    
   );
 };
 
