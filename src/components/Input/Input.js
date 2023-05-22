@@ -36,6 +36,7 @@ const Input = () => {
         className={theme}
         id='input-text'
         type="text"
+        autoComplete="off"
         placeholder="Search for any word .."
         onChange={onInputChange}
         value={input}
