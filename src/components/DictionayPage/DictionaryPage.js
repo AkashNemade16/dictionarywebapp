@@ -66,7 +66,7 @@ const DictionaryPage = () => {
           </div>
         </div>
       ))}
-      {sourceUrls ? <div className="sourceUrl">{sourceUrls}</div> : null}
+      {sourceUrls ? <div className="sourceUrl"><a href={sourceUrls}>{sourceUrls}</a></div> : null}
     </div>
   ) : (
     <div className="error-page">
