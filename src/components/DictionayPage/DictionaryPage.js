@@ -36,12 +36,23 @@ console.log(error?.response.data)
       </div>
       {data?.map((item) => (
         <div className="info">
-          <div className="part-of-speech">{item.partOfSpeech}</div>
+          <div className="speechRectangle">
+          <div className="part-of-speech">{item.partOfSpeech}
+          </div>
+          <div className="rectangle"></div>
+          </div>
+          <div className="Meaning">
+            <div className="MeaningText">Meaning</div>
           {item.partOfSpeech && item.definitions
             ? item.definitions.map((item) => (
-                <div className="definitions">{item.definition}</div>
+                <div className="definitions">
+                  <ul>
+                    <li>{item.definition}</li>
+                  </ul>
+                  </div>
               ))
             : null}
+          </div>
           {item.synonyms && item.partOfSpeech
             ? item.synonyms.map((item) => (
                 <div className="synonyms">{item}</div>
@@ -49,7 +60,7 @@ console.log(error?.response.data)
             : null}
         </div>
       ))}
-      <div className="sourceUrl">{sourceUrls}</div>
+      {sourceUrls?<div className="sourceUrl">{sourceUrls}</div>:null}
     </div>:<div className="error-page">
       <div className="title">
       {error?.response?.data?.title}

@@ -10,7 +10,7 @@ export const DropDownFont = () => {
     }
   return (
     <div className='dropdown'>
-       <select className={font} value={font} onChange={handleChange}>
+       <select className={`select ${font}`} value={font} onChange={handleChange}>
             <option  value='Iconsolata'>Iconsolota</option>
             <option  value='Inter'>Inter</option>
             <option  value='Lora'>lora</option>

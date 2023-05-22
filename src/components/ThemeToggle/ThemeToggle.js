@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faToggleOff, faToggleOn } from '@fortawesome/free-solid-svg-icons';
+import { faToggleOff, faToggleOn, faMoon} from '@fortawesome/free-solid-svg-icons';
 import { UserContext } from '../../UserContext/UserContext';
 import './ThemeToggle.sass'
 const ThemeToggle = () => {
@@ -13,8 +13,10 @@ const ThemeToggle = () => {
     <div className='themeToggle' id={theme}>
         <button onClick={changeTheme}>
         <FontAwesomeIcon className='iconToggle' icon={toggleButton}/>
+       
         </button>
-        
+        <FontAwesomeIcon className='faMoon --fa-border-color:white' icon={faMoon}/>
+   
     </div>
   )
 }

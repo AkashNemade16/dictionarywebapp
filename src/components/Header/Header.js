@@ -8,8 +8,10 @@ const Header = () => {
   return (
     <div className="header">
       <FontAwesomeIcon icon={faBook} />
+      <div className="drop-theme">
       <DropDownFont />
       <ThemeToggle />
+      </div>
     </div>
   );
 };
