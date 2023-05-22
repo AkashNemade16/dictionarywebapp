@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCirclePlay} from "@fortawesome/free-solid-svg-icons";
+import { faCirclePlay } from "@fortawesome/free-solid-svg-icons";
 import "./DictionaryPage.sass";
 import { UserContext } from "../../UserContext/UserContext";
 const DictionaryPage = () => {
@@ -17,7 +17,6 @@ const DictionaryPage = () => {
   const onPlay = () => {
     audio.play();
   };
-  console.log(apiData)
   return !error ? (
     <div className={`dictionary-page ${font}`}>
       <div className="word">
@@ -54,23 +53,28 @@ const DictionaryPage = () => {
               : null}
           </div>
           <div className="synonymHeading">
-          {item.synonyms.length ? <div className="synonym-heading">Synonyms</div>:null}
-          <div>
-          {item.synonyms && item.partOfSpeech
-            ? item.synonyms.map((item) => (
-                <div className="synonyms">{item}</div>
-              ))
-            : null}
-          </div>  
+            {item.synonyms.length ? (
+              <div className="synonym-heading">Synonyms</div>
+            ) : null}
+            <div>
+              {item.synonyms && item.partOfSpeech
+                ? item.synonyms.map((item) => (
+                    <div className="synonyms">{item}</div>
+                  ))
+                : null}
+            </div>
           </div>
-          
         </div>
       ))}
       {sourceUrls ? <div className="sourceUrl">{sourceUrls}</div> : null}
     </div>
   ) : (
     <div className="error-page">
-        {error?.response?.data?.title?<div role="img" aria-label="emoji">😕</div>:null} 
+      {error?.response?.data?.title ? (
+        <div role="img" aria-label="emoji">
+          😕
+        </div>
+      ) : null}
       <div className="title">{error?.response?.data?.title}</div>
       <div className="message">
         {error?.response?.data?.message?.concat(
