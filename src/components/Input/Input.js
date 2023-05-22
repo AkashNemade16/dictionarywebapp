@@ -29,7 +29,8 @@ const Input = () => {
   return (
     <form className={`form ${theme}`}>
       <input
-        id="input-text"
+        className={theme}
+        id='input-text'
         type="text"
         placeholder="Search for any word .."
         onChange={onInputChange}
