@@ -33,9 +33,10 @@ import  axios  from 'axios';
 export const fetchData = async({input}) => {
     try{
         const response = await axios.get(`https://api.dictionaryapi.dev/api/v2/entries/en/${input}`)
-        return response
+        return [response,undefined]
     }catch(err){
         console.log(err)
+        return [undefined,err]
     }
 }
 

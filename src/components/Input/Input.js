@@ -5,7 +5,7 @@ import { UserContext } from "../../UserContext/UserContext";
 import { fetchData } from "../../Api/Axios";
 import "./Input.sass";
 const Input = () => {
-  const { setUserInput, setApiData, theme } = useContext(UserContext);
+  const { setUserInput, setApiData, theme, setError } = useContext(UserContext);
   const [input, setInput] = useState("");
 
   const onInputChange = (event) => {
@@ -19,15 +19,12 @@ const Input = () => {
   };
 
   const getResponse = async () => {
-    const response = await fetchData({ input });
+    const [response,err] = await fetchData({ input });
+    setError(err)
     setApiData(response);
   };
 
-  const handleKeyBackspace = (event) => {
-    if (event.key === "Backspace") {
-      console.log("Backspace is pressed");
-    }
-  };
+  
 
   return (
     <form className={`form ${theme}`}>
@@ -37,7 +34,6 @@ const Input = () => {
         placeholder="Search for any word .."
         onChange={onInputChange}
         value={input}
-        onKeyDown={handleKeyBackspace}
       />
       <button onClick={onSubmit}>
         <FontAwesomeIcon icon={faMagnifyingGlass} />

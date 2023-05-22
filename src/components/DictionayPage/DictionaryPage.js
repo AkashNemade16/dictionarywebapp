@@ -4,8 +4,7 @@ import { faCirclePlay } from "@fortawesome/free-solid-svg-icons";
 import "./DictionaryPage.sass";
 import { UserContext } from "../../UserContext/UserContext";
 const DictionaryPage = () => {
-  const { apiData,font } = useContext(UserContext);
-  console.log(font)
+  const { apiData,font, error } = useContext(UserContext);
   const [data] = apiData?.data.map((item) => item.meanings) || [];
   const [phonetic] = apiData?.data.map((item) => item.phonetic) || [];
   const [sourceUrls] = apiData?.data.map((item) => item.sourceUrls) || [];
@@ -19,8 +18,9 @@ const DictionaryPage = () => {
 const onPlay =()=>{
     audio.play()
 }
+console.log(error?.response.data)
   return (
-    <div className={`dictionary-page ${font}`}>
+        !error?<div className={`dictionary-page ${font}`}>
       <div className="word">
         <div className="searched-Word-text">
           <div className="searchedWord">
@@ -28,11 +28,11 @@ const onPlay =()=>{
           </div>
           <div className="text">{phonetic}</div>
         </div>
-        <div className="play-button">
+        {apiData?<div className="play-button">
           <button onClick={onPlay}>
             <FontAwesomeIcon icon={faCirclePlay} />
           </button>
-        </div>
+        </div>:null}
       </div>
       {data?.map((item) => (
         <div className="info">
@@ -50,6 +50,13 @@ const onPlay =()=>{
         </div>
       ))}
       <div className="sourceUrl">{sourceUrls}</div>
+    </div>:<div className="error-page">
+      <div className="title">
+      {error?.response?.data?.title}
+      </div>
+      <div className="message">
+              {error?.response?.data?.message?.concat(" "+error?.response?.data?.resolution)}
+      </div>
     </div>
   );
 };

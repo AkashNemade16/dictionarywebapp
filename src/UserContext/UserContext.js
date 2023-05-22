@@ -7,7 +7,7 @@ const UserContextProvider = ({ children }) => {
   const [apiData, setApiData] = useState(null);
   const [theme, setTheme] = useState("light");
   const [font, setFont] = useState("Iconsolata");
-
+  const [error,setError] = useState(null)
   const value = {
     userInput,
     setUserInput,
@@ -17,6 +17,8 @@ const UserContextProvider = ({ children }) => {
     setApiData,
     font,
     setFont,
+    error,
+    setError
   };
 
   return <UserContext.Provider value={value}>{children}</UserContext.Provider>;
