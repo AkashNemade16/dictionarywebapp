@@ -7,14 +7,17 @@ import "./Input.sass";
 const Input = () => {
   const { setUserInput, setApiData, theme, setError } = useContext(UserContext);
   const [input, setInput] = useState("");
+  const [errorBorder,setErrorBorder] = useState(false);
 
   const onInputChange = (event) => {
     setInput(event.target.value);
     setUserInput(event.target.value);
+    setErrorBorder(false)
   };
 
   const onSubmit = (event) => {
     event.preventDefault();
+    setErrorBorder(true)
     getResponse();
   };
 
@@ -27,7 +30,7 @@ const Input = () => {
   
 
   return (
-    <form className={`form ${theme}`}>
+    <form className={`form ${theme} ${input==="" && errorBorder ? 'error':null}`}>
       <input
         className={theme}
         id='input-text'
